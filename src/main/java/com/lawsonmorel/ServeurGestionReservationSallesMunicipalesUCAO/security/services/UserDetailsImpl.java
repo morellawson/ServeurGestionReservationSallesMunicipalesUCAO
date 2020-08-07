@@ -19,6 +19,9 @@ private static final long serialVersionUID = 1L;
 	
 	private Long id;
 	
+	private String nom;
+	private String prenom;
+	
 	private String username;
 	
 	private String email;
@@ -28,15 +31,19 @@ private static final long serialVersionUID = 1L;
 	
 	private Collection<? extends GrantedAuthority> authorities;
 	
-	public UserDetailsImpl(Long id, String username, String email, String password,
+
+	public UserDetailsImpl(Long id, String nom, String prenom, String username, String email, String password,
 			Collection<? extends GrantedAuthority> authorities) {
 		super();
 		this.id = id;
+		this.nom = nom;
+		this.prenom = prenom;
 		this.username = username;
 		this.email = email;
 		this.password = password;
 		this.authorities = authorities;
 	}
+	
 	public static UserDetailsImpl build(User user) {
 		List<GrantedAuthority> authorities = user.getRoles().stream()
 				.map(role -> new SimpleGrantedAuthority(role.getName().name()))
@@ -44,12 +51,15 @@ private static final long serialVersionUID = 1L;
 
 		return new UserDetailsImpl(
 				user.getId(), 
+				user.getNom(),
+				user.getPrenom(),
 				user.getUsername(), 
 				user.getEmail(),
 				user.getPassword(), 
 				authorities);
 	}
 
+	
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		
@@ -64,6 +74,22 @@ private static final long serialVersionUID = 1L;
 		return email;
 	}
 	
+	public String getNom() {
+		return nom;
+	}
+
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
+
+	public String getPrenom() {
+		return prenom;
+	}
+
+	public void setPrenom(String prenom) {
+		this.prenom = prenom;
+	}
+
 	@Override
 	public String getPassword() {
 		

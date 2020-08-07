@@ -26,6 +26,26 @@ public class Visiteur {
 	private Integer telephone;
 	
 	@NotBlank
+	@Size(max = 200)
+	private String adresse;
+	
+	public String getAdresse() {
+		return adresse;
+	}
+
+	public void setAdresse(String adresse) {
+		this.adresse = adresse;
+	}
+
+	public Reservation getReservation() {
+		return reservation;
+	}
+
+	public void setReservation(Reservation reservation) {
+		this.reservation = reservation;
+	}
+
+	@NotBlank
 	@Size(max = 50)
 	@Email
 	private String email;

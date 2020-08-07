@@ -16,7 +16,7 @@ public class HomeController {
 		return "Public content";
 	}
 	@GetMapping("/user")
-	@PreAuthorize("hasRole('USER') or hasRole('EMPLOYE') or hasRole('ADMIN')")
+	@PreAuthorize("hasRole('USER') or hasRole('GARDIEN') or hasRole('EMPLOYE') or hasRole('ADMIN')")
 	public String userAccess() {
 		return "User Content.";
 	}

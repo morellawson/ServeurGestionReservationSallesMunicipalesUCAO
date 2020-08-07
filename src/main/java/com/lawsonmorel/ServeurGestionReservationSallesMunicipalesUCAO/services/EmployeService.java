@@ -9,21 +9,21 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import com.lawsonmorel.ServeurGestionReservationSallesMunicipalesUCAO.models.Employe;
-import com.lawsonmorel.ServeurGestionReservationSallesMunicipalesUCAO.repository.EmployeRepository;
+//import com.lawsonmorel.ServeurGestionReservationSallesMunicipalesUCAO.models.Employe;
+//import com.lawsonmorel.ServeurGestionReservationSallesMunicipalesUCAO.repository.EmployeRepository;
 
-@Service
+//@Service
 public class EmployeService {
 	
-	@Autowired
-	private EmployeRepository employeRepository;
+	/*@Autowired
+	private EmployeRepository employeRepository;*/
 	
 	
 	public EmployeService() {
 	
 	}
 
-	public Page<Employe> findAll(Pageable pageable){
+	/*public Page<Employe> findAll(Pageable pageable){
 		return employeRepository.findAll(pageable);
 	}
 	 public Employe findOne(Long id) {
@@ -59,6 +59,6 @@ public class EmployeService {
 	 }
 	 public void delete(Long id) {
 		 employeRepository.delete(id);
-	 }
+	 }*/
 }
 

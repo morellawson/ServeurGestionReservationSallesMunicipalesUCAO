@@ -5,9 +5,8 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
-@Entity
-//@Table(name="employes")
-public class Employe extends User{
+
+public class Employe {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)

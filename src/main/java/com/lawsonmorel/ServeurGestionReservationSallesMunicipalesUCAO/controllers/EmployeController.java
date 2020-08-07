@@ -19,12 +19,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.lawsonmorel.ServeurGestionReservationSallesMunicipalesUCAO.exceptions.ResourceNotFoundException;
 import com.lawsonmorel.ServeurGestionReservationSallesMunicipalesUCAO.models.Employe;
-import com.lawsonmorel.ServeurGestionReservationSallesMunicipalesUCAO.repository.EmployeRepository;
+//import com.lawsonmorel.ServeurGestionReservationSallesMunicipalesUCAO.repository.EmployeRepository;
 
 @CrossOrigin(origins="http://localhost:4200")
 @RestController
 public class EmployeController {
-	@Autowired
+	/*@Autowired
 	private EmployeRepository employeRepository;
 	
 	@GetMapping("/employes")
@@ -47,8 +47,8 @@ public class EmployeController {
 		 
 		return employeRepository.save(employe);
 		
-	}
-	
+	}*/
+/*	
 	@PutMapping("/employes/{id}")
 	public ResponseEntity<Employe> updateEmploye(@PathVariable(value="id")Long employeId,
 	              @Valid @RequestBody Employe employeDetails) throws ResourceNotFoundException{
@@ -80,5 +80,5 @@ public class EmployeController {
 		
 		
 		return response;
-	}
+	}*/
 }

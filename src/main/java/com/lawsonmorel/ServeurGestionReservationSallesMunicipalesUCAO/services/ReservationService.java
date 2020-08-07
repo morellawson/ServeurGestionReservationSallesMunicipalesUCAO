@@ -1,5 +1,6 @@
 package com.lawsonmorel.ServeurGestionReservationSallesMunicipalesUCAO.services;
 
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 
@@ -33,8 +34,27 @@ public class ReservationService {
 		return reservation;
 	}
 	
-	public List<Reservation> searchReservations(LinkedHashMap<String, String> parameters) throws Exception {
-		List<Reservation> reservations = reservationRepository.searchReservations(parameters);
+	
+	public List getAllReservation() {
+		
+		List reservations =new ArrayList<>();
+		reservationRepository.findAll().forEach(reservations::add);
 		return reservations;
+	}
+
+/*	public Reservation getReservation(Long id) {
+		return reservationRepository.findOne(id);
+	}*/
+	
+	public void addReservation(Reservation reservation) {
+		reservationRepository.save(reservation);
+	}
+	
+	public void updateReservation(Long id,Reservation reservation) {
+		reservationRepository.save(reservation);
+	}
+	
+	public void deleteReservation(Long id) {
+		reservationRepository.deleteById(id);
 	}
 }

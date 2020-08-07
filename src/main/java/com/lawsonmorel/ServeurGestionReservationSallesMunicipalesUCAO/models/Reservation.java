@@ -1,6 +1,7 @@
 package com.lawsonmorel.ServeurGestionReservationSallesMunicipalesUCAO.models;
 
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 import javax.persistence.*;
@@ -41,34 +42,34 @@ public class Reservation {
     private Visiteur visiteur;
 	
 	@Column(name="date_debut_reservation")
-	@JsonFormat(shape=JsonFormat.Shape.STRING,pattern="dd-MM-yyyy",timezone="UTC")
-	@Temporal(TemporalType.DATE)
+	//@JsonFormat(shape=JsonFormat.Shape.STRING,pattern="dd-MM-yyyy",timezone="UTC")
+	//@Temporal(TemporalType.DATE)
 	@NotNull
-	private Date dateDeutReservation;
+	private LocalDateTime dateDeutReservation;
 	
 	@Column(name="heure_debut_reservation")
-	@JsonFormat(shape=JsonFormat.Shape.STRING,pattern="HH:mm:ss")
-	@Temporal(TemporalType.TIME)
+	//@JsonFormat(shape=JsonFormat.Shape.STRING,pattern="HH:mm:ss")
+	//@Temporal(TemporalType.TIME)
 	@NotNull
-	private Date heureDeutReservation;
+	private LocalDateTime heureDeutReservation;
 	
 	@Column(name="date_fin_reservation")
-	@JsonFormat(shape=JsonFormat.Shape.STRING,pattern="dd-MM-yyyy",timezone="UTC")
-	@Temporal(TemporalType.DATE)
+	//@JsonFormat(shape=JsonFormat.Shape.STRING,pattern="dd-MM-yyyy",timezone="UTC")
+	//@Temporal(TemporalType.DATE)
 	@NotNull
-	private Date dateFinReservation;
+	private LocalDateTime dateFinReservation;
 	
 	@Column(name="heure_fin_reservation")
-	@JsonFormat(shape=JsonFormat.Shape.STRING,pattern="HH:mm:ss")
-	@Temporal(TemporalType.TIME)
+	//@JsonFormat(shape=JsonFormat.Shape.STRING,pattern="HH:mm:ss")
+	//@Temporal(TemporalType.TIME)
 	@NotNull
-	private Date heureFinReservation;
+	private LocalDateTime heureFinReservation;
 	
 	@Column(name="date_reservation")
-	@JsonFormat(shape=JsonFormat.Shape.STRING,pattern="dd-MM-yyyy")
-	@Temporal(TemporalType.DATE)
+	//@JsonFormat(shape=JsonFormat.Shape.STRING,pattern="dd-MM-yyyy")
+	//@Temporal(TemporalType.DATE)
 	@NotNull
-	private Date dateReservation;
+	private LocalDateTime dateReservation;
 	
 	private Integer nbrePerson;
 	
@@ -81,8 +82,8 @@ public class Reservation {
 	}
 
 	public Reservation( String nomManif, Salle salle, Visiteur visiteur,
-			Date dateDeutReservation, Date heureDeutReservation, Date dateFinReservation,
-			 Date heureFinReservation,  Date dateReservation, Integer nbrePerson,
+			LocalDateTime dateDeutReservation, LocalDateTime heureDeutReservation, LocalDateTime dateFinReservation,
+			LocalDateTime heureFinReservation,  LocalDateTime dateReservation, Integer nbrePerson,
 			Boolean isMaterielReserve) {
 		
 		this.nomManif = nomManif;
@@ -162,56 +163,48 @@ public class Reservation {
 		this.visiteur = visiteur;
 	}
 
-	public Date getDateDeutReservation() {
+	
+
+
+	public LocalDateTime getDateDeutReservation() {
 		return dateDeutReservation;
 	}
 
-	public void setDateDeutReservation(Date dateDeutReservation) {
+	public void setDateDeutReservation(LocalDateTime dateDeutReservation) {
 		this.dateDeutReservation = dateDeutReservation;
 	}
 
-	public Date getHeureDeutReservation() {
+	public LocalDateTime getHeureDeutReservation() {
 		return heureDeutReservation;
 	}
 
-
-	public void setHeureDeutReservation(Date heureDeutReservation) {
+	public void setHeureDeutReservation(LocalDateTime heureDeutReservation) {
 		this.heureDeutReservation = heureDeutReservation;
 	}
 
-
-
-	public Date getDateFinReservation() {
+	public LocalDateTime getDateFinReservation() {
 		return dateFinReservation;
 	}
 
-
-	public void setDateFinReservation(Date dateFinReservation) {
+	public void setDateFinReservation(LocalDateTime dateFinReservation) {
 		this.dateFinReservation = dateFinReservation;
 	}
 
-	public Date getHeureFinReservation() {
+	public LocalDateTime getHeureFinReservation() {
 		return heureFinReservation;
 	}
 
-
-	public void setHeureFinReservation(Date heureFinReservation) {
+	public void setHeureFinReservation(LocalDateTime heureFinReservation) {
 		this.heureFinReservation = heureFinReservation;
 	}
 
-
-
-	public Date getDateReservation() {
+	public LocalDateTime getDateReservation() {
 		return dateReservation;
 	}
 
-
-
-	public void setDateReservation(Date dateReservation) {
+	public void setDateReservation(LocalDateTime dateReservation) {
 		this.dateReservation = dateReservation;
 	}
-
-
 
 	public Integer getNbrePerson() {
 		return nbrePerson;

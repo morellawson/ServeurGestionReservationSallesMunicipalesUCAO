@@ -8,5 +8,5 @@ import com.lawsonmorel.ServeurGestionReservationSallesMunicipalesUCAO.models.Res
 @Repository
 public interface ReservationRepository extends JpaRepository<Reservation,Long>{
  
-	public void searchReservation();
+	//public void searchReservation();
 }

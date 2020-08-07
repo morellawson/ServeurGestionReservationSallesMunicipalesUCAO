@@ -2,21 +2,21 @@ package com.lawsonmorel.ServeurGestionReservationSallesMunicipalesUCAO.repositor
 
 import java.util.Optional;
 
-import javax.transaction.Transactional;
 
-
-
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import com.lawsonmorel.ServeurGestionReservationSallesMunicipalesUCAO.models.User;
 
 
-@Transactional
-public interface UserRepository extends /*JpaRepository<User,Long>*/ UserBaseRepository<User>{
+@Repository
+public interface UserRepository extends JpaRepository<User,Long>{
 	
 	Optional<User> findByUsername(String username);
 
 	Boolean existsByUsername(String username);
 
 	Boolean existsByEmail(String email);
+	
 
 }

@@ -1,6 +1,7 @@
 package com.lawsonmorel.ServeurGestionReservationSallesMunicipalesUCAO.models;
 
 
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.*;
@@ -45,14 +46,21 @@ public class Salle {
 	
 	@OneToMany(mappedBy="salle",fetch=FetchType.LAZY,
 			cascade=CascadeType.ALL)
-	private Set<Materiel> materiels;
+	private List<Materiel> materiels;
+	
 	
 	
 	@OneToOne(mappedBy="salle",fetch=FetchType.LAZY,
 			             cascade=CascadeType.ALL)
 	private Reservation reservation;
 	
+	private String fileName;
 	
+
+
+	public Salle() {
+		
+	}
 
 	public Salle(String nom, String adresse, Integer capaciteMax,Integer capaciteMin, String description, Double prixParticulier, Double prixAsso,
 			Double surface, String etat) {
@@ -66,6 +74,27 @@ public class Salle {
 		this.prixAsso = prixAsso;
 		this.surface = surface;
 		this.etat = etat;
+	}
+	
+	
+
+	public Salle(Long id,  String nom, String adresse,
+			Integer capaciteMax, Integer capaciteMin, String description,
+			Double prixParticulier, Double prixAsso, Double surface,  String etat,
+			List<Materiel> materiels, String fileName) {
+		
+		this.id = id;
+		this.nom = nom;
+		this.adresse = adresse;
+		this.capaciteMax = capaciteMax;
+		this.capaciteMin = capaciteMin;
+		this.description = description;
+		this.prixParticulier = prixParticulier;
+		this.prixAsso = prixAsso;
+		this.surface = surface;
+		this.etat = etat;
+		this.materiels = materiels;
+		this.fileName = fileName;
 	}
 
 	public Long getId() {
@@ -148,7 +177,40 @@ public class Salle {
 		this.etat = etat;
 	}
 	
+
+	public String getFileName() {
+		return fileName;
+	}
+
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
+	}
 	
+
+	public List<Materiel> getMateriels() {
+		return materiels;
+	}
+
+	public void setMateriels(List<Materiel> materiels) {
+		this.materiels = materiels;
+	}
+
+	public Reservation getReservation() {
+		return reservation;
+	}
+
+	public void setReservation(Reservation reservation) {
+		this.reservation = reservation;
+	}
+
+	@Override
+	public String toString() {
+		return "Salle [id=" + id + ", nom=" + nom + ", adresse=" + adresse + ", capaciteMax=" + capaciteMax
+				+ ", capaciteMin=" + capaciteMin + ", description=" + description + ", prixParticulier="
+				+ prixParticulier + ", prixAsso=" + prixAsso + ", surface=" + surface + ", etat=" + etat
+				+ ", materiels=" + materiels + ", reservation=" + reservation + ", fileName=" + fileName + "]";
+	}
+
 	
 	
 
